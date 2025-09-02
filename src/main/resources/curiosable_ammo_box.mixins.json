@@ -2,16 +2,14 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.nanaios.curiosable_ammo_box.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "curiosable_ammo_box.refmap.json",
   "mixins": [
     "MixinAbstractGunItem",
     "MixinCuriosableAmmoBoxCombinedInvWrapper"
   ],
   "client": [
-    "MixinAbstractGunItem",
-    "MixinGunHudOverlay",
-    "MixinCuriosableAmmoBoxCombinedInvWrapper"
+    "MixinGunHudOverlay"
   ],
   "injectors": {
     "defaultRequire": 1
