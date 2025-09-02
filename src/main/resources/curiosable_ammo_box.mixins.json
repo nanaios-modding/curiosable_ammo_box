@@ -5,11 +5,13 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "curiosable_ammo_box.refmap.json",
   "mixins": [
-    "MixinAbstractGunItem"
+    "MixinAbstractGunItem",
+    "MixinCuriosableAmmoBoxCombinedInvWrapper"
   ],
   "client": [
     "MixinAbstractGunItem",
-    "MixinGunHudOverlay"
+    "MixinGunHudOverlay",
+    "MixinCuriosableAmmoBoxCombinedInvWrapper"
   ],
   "injectors": {
     "defaultRequire": 1
