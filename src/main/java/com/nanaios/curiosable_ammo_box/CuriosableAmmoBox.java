@@ -11,6 +11,5 @@ public class CuriosableAmmoBox {
 
     public static final Logger LOGGER =  LogManager.getLogger();
 
-    public CuriosableAmmoBox() {
-    }
+    public CuriosableAmmoBox() {}
 }

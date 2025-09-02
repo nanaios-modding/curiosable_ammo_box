@@ -1,10 +1,8 @@
 package com.nanaios.curiosable_ammo_box.mixin;
 
-import com.nanaios.curiosable_ammo_box.util.InvWrapper;
+import com.nanaios.curiosable_ammo_box.util.PlayerInvWrapperWithCurios;
 import com.tacz.guns.api.item.gun.AbstractGunItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.PlayerInvWrapper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -12,7 +10,11 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(value = AbstractGunItem.class,remap = false)
 public class MixinAbstractGunItem {
     @ModifyVariable(method = "lambda$canReload$1", at = @At("HEAD"),ordinal = 1, argsOnly = true)
-    private static IItemHandler testNN(IItemHandler itemHandler) {
-        return InvWrapper.create(itemHandler);
+    private static IItemHandler mixinAbstractGunItem$lambda$canReload$1(IItemHandler itemHandler) {
+        return PlayerInvWrapperWithCurios.create(itemHandler);
+    }
+    @ModifyVariable(method = "findAndExtractInventoryAmmo",at=@At("HEAD"),argsOnly = true)
+    private static IItemHandler MixinAbstractGunItem$findAndExtractInventoryAmmo(IItemHandler itemHandler) {
+        return PlayerInvWrapperWithCurios.create(itemHandler);
     }
 }

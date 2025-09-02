@@ -13,10 +13,10 @@ import java.util.Map;
 public class InventoryWithCurios extends Inventory {
     private final ICuriosItemHandler curiosInventory;
     private final Inventory overrideInventory;
-    public InventoryWithCurios(Player p_35983_,Inventory inventory) {
-        super(p_35983_);
+    public InventoryWithCurios(Player player, Inventory inventory) {
+        super(player);
         this.overrideInventory = inventory;
-        this.curiosInventory = CuriosApi.getCuriosInventory(p_35983_).resolve().get();
+        this.curiosInventory = CuriosApi.getCuriosInventory(player).resolve().get();
     }
 
     @Override
