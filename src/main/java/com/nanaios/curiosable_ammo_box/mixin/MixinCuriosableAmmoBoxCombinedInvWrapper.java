@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(value = CombinedInvWrapper.class,remap = false)
+@Mixin(value = CombinedInvWrapper.class, remap = false)
 public interface MixinCuriosableAmmoBoxCombinedInvWrapper {
     @Final
     @Accessor(value = "itemHandler")
