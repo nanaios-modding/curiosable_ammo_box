@@ -14,7 +14,7 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
     private InventoryWithCurios inv;
     public PlayerInvWrapperWithCurios(Inventory inventory) {
         super(inventory);
-        inv = new InventoryWithCurios(inventory.player,inventory);
+        inv = new InventoryWithCurios(inventory);
     }
 
     @Override
@@ -33,6 +33,9 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
             if(handlers[0] instanceof PlayerMainInvWrapper mainWap) {
                 return new PlayerInvWrapperWithCurios(mainWap.getInventoryPlayer());
             }
+        }
+        if(itemHandler instanceof Inventory inventory) {
+            return new PlayerInvWrapperWithCurios(inventory);
         }
         return  itemHandler;
     }

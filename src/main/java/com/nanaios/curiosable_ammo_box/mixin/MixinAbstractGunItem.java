@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(value = AbstractGunItem.class,remap = false)
 public class MixinAbstractGunItem {
+
     @ModifyVariable(method = "lambda$canReload$1", at = @At("HEAD"), argsOnly = true)
     private static IItemHandler mixinAbstractGunItem$lambda$canReload$1(IItemHandler itemHandler) {
         return PlayerInvWrapperWithCurios.create(itemHandler);

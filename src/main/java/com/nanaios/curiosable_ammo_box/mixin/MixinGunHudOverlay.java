@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public class MixinGunHudOverlay {
     @ModifyVariable(method = "handleInventoryAmmo", at = @At("HEAD"),argsOnly = true)
     private static Inventory mixinHandleInventoryAmmo(Inventory inventory) {
-        return new InventoryWithCurios(inventory.player,inventory);
+        return new InventoryWithCurios(inventory);
     }
 }
