@@ -15,6 +15,8 @@ import java.util.Map;
 public class InventoryWithCurios extends Inventory {
     private @Nullable ICuriosItemHandler curiosInventory;
     private final Inventory overrideInventory;
+
+
     public InventoryWithCurios(Inventory inventory) {
         super(inventory.player);
 

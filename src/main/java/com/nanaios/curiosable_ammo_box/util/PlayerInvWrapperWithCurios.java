@@ -34,9 +34,6 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
                 return new PlayerInvWrapperWithCurios(mainWap.getInventoryPlayer());
             }
         }
-        if(itemHandler instanceof Inventory inventory) {
-            return new PlayerInvWrapperWithCurios(inventory);
-        }
         return  itemHandler;
     }
 }

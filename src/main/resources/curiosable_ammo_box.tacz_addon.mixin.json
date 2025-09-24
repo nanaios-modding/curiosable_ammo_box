@@ -1,0 +1,11 @@
+{
+  "minVersion": "0.8",
+  "package": "com.nanaios.curiosable_ammo_box.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "curiosable_ammo_box.refmap.json",
+  "mixins": [],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
