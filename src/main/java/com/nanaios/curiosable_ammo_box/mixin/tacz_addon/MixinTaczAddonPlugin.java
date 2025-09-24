@@ -1,5 +1,6 @@
 package com.nanaios.curiosable_ammo_box.mixin.tacz_addon;
 
+import com.nanaios.curiosable_ammo_box.util.TaczAddonConnector;
 import net.minecraftforge.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -21,11 +22,7 @@ public class MixinTaczAddonPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if(LoadingModList.get().getModFileById("taczaddon") == null) {
-            return false;
-        } else {
-            return  true;
-        }
+        return TaczAddonConnector.isLoaded();
     }
 
     @Override
