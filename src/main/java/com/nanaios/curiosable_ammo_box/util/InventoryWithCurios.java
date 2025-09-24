@@ -10,16 +10,15 @@ import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
+import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class InventoryWithCurios extends Inventory {
     private @Nullable ICuriosItemHandler curiosInventory;
     private final Inventory overrideInventory;
 
-
     public InventoryWithCurios(Inventory inventory) {
         super(inventory.player);
-
         this.overrideInventory = inventory;
         CuriosApi.getCuriosInventory(player).ifPresent(iCuriosItemHandler -> {
             curiosInventory = iCuriosItemHandler;
@@ -30,7 +29,7 @@ public class InventoryWithCurios extends Inventory {
     public int getContainerSize() {
         int defaultContainerSize = overrideInventory.getContainerSize();
         int curiosSize = curiosInventory != null ? curiosInventory.getSlots() : 0;
-        int playerInventorySize = player.getInventory().getContainerSize();
+        int playerInventorySize = player.getInventory().offhand.size();
 
         return defaultContainerSize + curiosSize + playerInventorySize;
     }
@@ -66,6 +65,6 @@ public class InventoryWithCurios extends Inventory {
         }
 
         //indexがcuriosInventory.getSlots() + overrideInventory.getContainerSize()以上ならplayerInventoryから取得
-        return player.getInventory().getItem(index - curiosSize);
+        return player.getInventory().offhand.get(index - curiosSize);
     }
 }

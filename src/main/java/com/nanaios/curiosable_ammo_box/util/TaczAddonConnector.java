@@ -1,8 +1,8 @@
 package com.nanaios.curiosable_ammo_box.util;
 
 import com.mafuyu404.taczaddon.init.VirtualInventory;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.fml.loading.LoadingModList;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,6 +16,11 @@ public class TaczAddonConnector {
         } else {
             return  true;
         }
+    }
+
+    public static boolean isVirtualInventory(Inventory inventory) {
+        if(!isLoaded()) return false;
+        return inventory instanceof VirtualInventory;
     }
 
     public static VirtualInventory getVirtualInventory(IItemHandler itemHandler) throws IllegalAccessException {
