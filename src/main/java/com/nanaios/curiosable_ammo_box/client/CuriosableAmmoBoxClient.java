@@ -2,6 +2,7 @@ package com.nanaios.curiosable_ammo_box.client;
 
 import com.nanaios.curiosable_ammo_box.CuriosableAmmoBox;
 import com.nanaios.curiosable_ammo_box.client.renderer.CuriosableAmmoBoxCurioRenderer;
+import com.tacz.guns.init.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +16,6 @@ public class CuriosableAmmoBoxClient {
     }
 
     private void clientSetup(final FMLClientSetupEvent evt) {
-        CuriosRendererRegistry.register(CurioModItems.MY_ITEM, () -> new CuriosableAmmoBoxCurioRenderer());
+        CuriosRendererRegistry.register(ModItems.AMMO_BOX.get(), CuriosableAmmoBoxCurioRenderer::new);
     }
 }
