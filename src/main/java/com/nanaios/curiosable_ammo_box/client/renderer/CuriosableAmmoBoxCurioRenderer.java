@@ -1,6 +1,7 @@
 package com.nanaios.curiosable_ammo_box.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.nanaios.curiosable_ammo_box.CuriosableAmmoBox;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -15,6 +16,7 @@ import top.theillusivec4.curios.api.client.ICurioRenderer;
 public class CuriosableAmmoBoxCurioRenderer implements ICurioRenderer {
     @Override
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack itemStack, SlotContext slotContext, PoseStack poseStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource multiBufferSource, int i, float v, float v1, float v2, float v3, float v4, float v5) {
+
         poseStack.pushPose();
         poseStack.translate(0.0D, 1.8D, 0.0D);
         Minecraft.getInstance().getItemRenderer().renderStatic(itemStack, ItemDisplayContext.FIXED, 1, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, null, 0);
