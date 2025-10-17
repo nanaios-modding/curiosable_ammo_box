@@ -15,5 +15,7 @@ public class CuriosableAmmoBoxClient {
         eventBus.addListener(this::clientSetup);
     }
 
-    private void clientSetup(final FMLClientSetupEvent evt) {}
+    private void clientSetup(final FMLClientSetupEvent evt) {
+        CuriosRendererRegistry.register(ModItems.AMMO_BOX.get(), CuriosableAmmoBoxCurioRenderer::new);
+    }
 }
