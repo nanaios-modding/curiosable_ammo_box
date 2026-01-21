@@ -6,10 +6,12 @@
   "refmap": "curiosable_ammo_box.refmap.json",
   "mixins": [
     "MixinAbstractGunItem",
-    "MixinCuriosableAmmoBoxCombinedInvWrapper"
+    "MixinCuriosableAmmoBoxCombinedInvWrapper",
+    "MixinModernKineticGunScriptAPI"
   ],
   "client": [
-    "MixinGunHudOverlay"
+    "MixinGunHudOverlay",
+    "MixinGunAnimationStateContext"
   ],
   "injectors": {
     "defaultRequire": 1

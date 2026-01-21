@@ -20,7 +20,7 @@ public class MixinAbstractGunItem {
     }
 
     @ModifyVariable(method = "lambda$hasInventoryAmmo$6", at = @At("HEAD"), argsOnly = true, name = "arg1")
-    private static IItemHandler MixinAbstractGunItem$hasInventoryAmmo(IItemHandler itemHandler) {
+    private static IItemHandler MixinAbstractGunItem$lambda$hasInventoryAmmo$6(IItemHandler itemHandler) {
         return PlayerInvWrapperWithCurios.create(itemHandler);
     }
 }
