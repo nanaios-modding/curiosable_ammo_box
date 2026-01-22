@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.mixin;
+package com.nanaios.curiosable_ammo_box.mixin.common;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;

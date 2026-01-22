@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.mixin;
+package com.nanaios.curiosable_ammo_box.mixin.common;
 
 import com.nanaios.curiosable_ammo_box.util.PlayerInvWrapperWithCurios;
 import com.tacz.guns.item.ModernKineticGunScriptAPI;
