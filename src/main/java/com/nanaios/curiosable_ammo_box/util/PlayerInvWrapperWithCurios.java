@@ -1,6 +1,6 @@
 package com.nanaios.curiosable_ammo_box.util;
 
-import com.nanaios.curiosable_ammo_box.mixin.common.MixinCuriosableAmmoBoxCombinedInvWrapper;
+import com.nanaios.curiosable_ammo_box.mixin.common.IMixinCombinedInvWrapper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
@@ -28,7 +28,7 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
 
     public static IItemHandler create(IItemHandler itemHandler) {
         if(itemHandler instanceof  PlayerInvWrapper playerWap) {
-            IItemHandlerModifiable[] handlers = ((MixinCuriosableAmmoBoxCombinedInvWrapper)playerWap).mixinCuriosableAmmoBoxItemHandler();
+            IItemHandlerModifiable[] handlers = ((IMixinCombinedInvWrapper)playerWap).mixinCfAB$getItemHandler();
             if(handlers[0] instanceof PlayerMainInvWrapper mainWap) {
                 return new PlayerInvWrapperWithCurios(mainWap.getInventoryPlayer());
             }

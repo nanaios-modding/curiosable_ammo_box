@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(value = CombinedInvWrapper.class, remap = false)
-public interface MixinCuriosableAmmoBoxCombinedInvWrapper {
+public interface IMixinCombinedInvWrapper {
     @Final
     @Accessor(value = "itemHandler")
-    IItemHandlerModifiable[] mixinCuriosableAmmoBoxItemHandler();
+    IItemHandlerModifiable[] mixinCfAB$getItemHandler();
 }

@@ -6,6 +6,7 @@
   "refmap": "curiosable_ammo_box.refmap.json",
   "plugin": "com.nanaios.curiosable_ammo_box.mixin.taczaddon.TaCZAddonMixinPlugin",
   "mixins": [
+    "MixinVirtualInventory$ItemHandler"
   ],
   "client": [
   ],
