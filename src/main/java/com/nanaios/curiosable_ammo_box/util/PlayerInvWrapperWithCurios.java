@@ -33,11 +33,6 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
                 return new PlayerInvWrapperWithCurios(mainWap.getInventoryPlayer());
             }
         }
-        if(TaczAddonConnector.isLoaded()) {
-            try {
-                return TaczAddonConnector.tryAccessVirtualInventory(itemHandler);
-            } catch (IllegalAccessException ignored) {}
-        }
-        return  itemHandler;
+        return itemHandler;
     }
 }
