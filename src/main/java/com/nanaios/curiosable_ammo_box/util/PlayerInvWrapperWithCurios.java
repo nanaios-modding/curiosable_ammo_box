@@ -1,5 +1,6 @@
 package com.nanaios.curiosable_ammo_box.util;
 
+import com.nanaios.curiosable_ammo_box.CuriosableAmmoBox;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
@@ -25,6 +26,7 @@ public class PlayerInvWrapperWithCurios extends PlayerInvWrapper {
     public @NotNull ItemStack getStackInSlot(int slot) {
         return inv.getItem(slot);
     }
+
 
     public static IItemHandler create(IItemHandler itemHandler) {
         if(itemHandler instanceof  PlayerInvWrapper playerWap) {
