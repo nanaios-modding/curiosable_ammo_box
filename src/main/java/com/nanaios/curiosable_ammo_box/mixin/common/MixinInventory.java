@@ -1,0 +1,21 @@
+package com.nanaios.curiosable_ammo_box.mixin.common;
+
+import com.nanaios.curiosable_ammo_box.util.ICuriosHandlerSourceMarker;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(value = Inventory.class)
+public class MixinInventory implements ICuriosHandlerSourceMarker {
+
+    @Override
+    public int CfAB$getSlots() {
+        return 0;
+    }
+
+    @Override
+    public @NotNull ItemStack CfAB$getStackInSlot(int slot) {
+        return ((Inventory)(Object)this).getItem(slot);
+    }
+}

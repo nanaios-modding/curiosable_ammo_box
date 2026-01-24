@@ -6,7 +6,9 @@
   "refmap": "curiosable_ammo_box.refmap.json",
   "mixins": [
     "MixinAbstractGunItem",
-    "MixinModernKineticGunScriptAPI"
+    "MixinModernKineticGunScriptAPI",
+    "MixinInventory",
+    "MixinPlayerInvWrapper"
   ],
   "client": [
     "MixinGunHudOverlay",
