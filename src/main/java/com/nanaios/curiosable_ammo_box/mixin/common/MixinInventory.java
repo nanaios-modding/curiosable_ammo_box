@@ -11,7 +11,7 @@ public class MixinInventory implements ICuriosHandlerSourceMarker {
 
     @Override
     public int CfAB$getSlots() {
-        return 0;
+        return ((Inventory)(Object)this).getContainerSize();
     }
 
     @Override
