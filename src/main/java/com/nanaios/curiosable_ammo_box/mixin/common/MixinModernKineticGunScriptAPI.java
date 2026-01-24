@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(value = ModernKineticGunScriptAPI.class,remap = false)
 public class MixinModernKineticGunScriptAPI {
     @ModifyVariable(method = "lambda$hasAmmoToConsume$5", at = @At("HEAD"), argsOnly = true, name = "arg1")
-    private static IItemHandler MixinModernKineticGunScriptAPI$lambda$hasAmmoToConsume$5(IItemHandler itemHandler) {
+    private IItemHandler MixinModernKineticGunScriptAPI$lambda$hasAmmoToConsume$5(IItemHandler itemHandler) {
         return ItemHandlerWithCurios.create(itemHandler);
     }
 }
