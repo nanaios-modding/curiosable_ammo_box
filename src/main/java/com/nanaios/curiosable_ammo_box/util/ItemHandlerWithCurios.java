@@ -33,7 +33,7 @@ public class ItemHandlerWithCurios implements IItemHandler {
 
     @Override
     public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-        return ItemStack.EMPTY;
+        return handler.extractItem(slot, amount, simulate);
     }
 
     @Override

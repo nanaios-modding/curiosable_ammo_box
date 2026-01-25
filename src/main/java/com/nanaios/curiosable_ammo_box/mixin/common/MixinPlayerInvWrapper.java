@@ -17,4 +17,9 @@ public class MixinPlayerInvWrapper implements ICuriosHandlerSourceMarker {
     public @NotNull ItemStack CfAB$getStackInSlot(int slot) {
         return ((PlayerInvWrapper)(Object)this).getStackInSlot(slot);
     }
+
+    @Override
+    public @NotNull ItemStack CfAB$extractItem(int slot, int amount, boolean simulate) {
+        return ((PlayerInvWrapper)(Object)this).extractItem(slot,amount,simulate);
+    }
 }

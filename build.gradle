@@ -59,6 +59,7 @@ minecraft {
     // By default, the folder name of a run configuration is the name of the Gradle project containing it.
     // generateRunFolders = true
 
+    
     // This property enables access transformers for use in development.
     // They will be applied to the Minecraft artifact.
     // The access transformer file can be anywhere in the project.

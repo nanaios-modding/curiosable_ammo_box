@@ -18,4 +18,9 @@ public class MixinInventory implements ICuriosHandlerSourceMarker {
     public @NotNull ItemStack CfAB$getStackInSlot(int slot) {
         return ((Inventory)(Object)this).getItem(slot);
     }
+
+    @Override
+    public @NotNull ItemStack CfAB$extractItem(int slot, int amount, boolean simulate) {
+        return ItemStack.EMPTY;
+    }
 }

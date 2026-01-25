@@ -6,4 +6,5 @@ import org.jetbrains.annotations.NotNull;
 public interface ICuriosHandlerSourceMarker {
     int CfAB$getSlots();
     @NotNull ItemStack CfAB$getStackInSlot(int slot);
+    @NotNull ItemStack CfAB$extractItem(int slot, int amount, boolean simulate);
 }

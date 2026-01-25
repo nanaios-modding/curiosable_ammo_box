@@ -31,14 +31,28 @@ public class CuriosHandler {
         return defaultContainerSize + curiosSize;
     }
 
-    public ItemStack getItemFromCurios(int index) {
+    public ItemStack getItemFromCurios(int slot) {
         if(curiosInventory == null) return ItemStack.EMPTY;
 
         int count = 0;
         for(Map.Entry<String, ICurioStacksHandler> curiosEntry:curiosInventory.getCurios().entrySet()){
             IDynamicStackHandler handler = curiosEntry.getValue().getStacks();
             for(int j = 0;j < handler.getSlots();j++) {
-                if(index == count) return handler.getStackInSlot(j);
+                if(slot == count) return handler.getStackInSlot(j);
+                count++;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    public ItemStack extractItemFromCurios(int slot, int amount, boolean simulate) {
+        if(curiosInventory == null) return ItemStack.EMPTY;
+
+        int count = 0;
+        for(Map.Entry<String, ICurioStacksHandler> curiosEntry:curiosInventory.getCurios().entrySet()){
+            IDynamicStackHandler handler = curiosEntry.getValue().getStacks();
+            for(int j = 0;j < handler.getSlots();j++) {
+                if(slot == count) return handler.extractItem(slot, amount, simulate);
                 count++;
             }
         }
@@ -47,7 +61,6 @@ public class CuriosHandler {
 
 
     public @NotNull ItemStack getStackInSlot(int slot) {
-        //indexがoverrideInventory.getContainerSize()未満ならoverrideInventoryから取得
         int overrideInventoryContainerSize = source.CfAB$getSlots();
         if(slot < overrideInventoryContainerSize) {
             return source.CfAB$getStackInSlot(slot);
@@ -55,5 +68,14 @@ public class CuriosHandler {
 
         //curiosInventoryから取得
         return getItemFromCurios(slot - overrideInventoryContainerSize);
+    }
+
+    public ItemStack extractItem(int slot, int amount, boolean simulate) {
+        int overrideInventoryContainerSize = source.CfAB$getSlots();
+        if(slot < overrideInventoryContainerSize) {
+            return source.CfAB$extractItem(slot, amount, simulate);
+        }
+
+        return extractItemFromCurios(slot - overrideInventoryContainerSize, amount, simulate);
     }
 }
