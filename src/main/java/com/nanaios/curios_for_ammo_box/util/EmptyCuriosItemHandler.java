@@ -139,10 +139,14 @@ public class EmptyCuriosItemHandler implements ICuriosItemHandler {
 
     }
 
+    @SuppressWarnings("removal")
+    @Override
     public void growSlotType(String identifier, int amount) {
 
     }
 
+    @SuppressWarnings("removal")
+    @Override
     public void shrinkSlotType(String identifier, int amount) {
 
     }
