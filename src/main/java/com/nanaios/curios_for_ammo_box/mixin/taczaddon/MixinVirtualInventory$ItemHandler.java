@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface MixinVirtualInventory$ItemHandler {
     @Final
     @Accessor(value = "virtualInventory")
-    VirtualInventory mixinCfAB$getVirtualInventory();
+    VirtualInventory mixinCFAB$getVirtualInventory();
 }
