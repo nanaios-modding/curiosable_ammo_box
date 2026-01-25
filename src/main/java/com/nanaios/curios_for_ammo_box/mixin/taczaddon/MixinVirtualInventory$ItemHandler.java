@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.mixin.taczaddon;
+package com.nanaios.curios_for_ammo_box.mixin.taczaddon;
 
 import com.mafuyu404.taczaddon.init.VirtualInventory;
 import org.spongepowered.asm.mixin.Final;

@@ -1,6 +1,6 @@
-package com.nanaios.curiosable_ammo_box.mixin.common;
+package com.nanaios.curios_for_ammo_box.mixin.common;
 
-import com.nanaios.curiosable_ammo_box.util.ICuriosHandlerSourceMarker;
+import com.nanaios.curios_for_ammo_box.util.ICuriosHandlerSourceMarker;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
 import org.jetbrains.annotations.NotNull;

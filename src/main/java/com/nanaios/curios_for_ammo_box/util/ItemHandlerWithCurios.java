@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.util;
+package com.nanaios.curios_for_ammo_box.util;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

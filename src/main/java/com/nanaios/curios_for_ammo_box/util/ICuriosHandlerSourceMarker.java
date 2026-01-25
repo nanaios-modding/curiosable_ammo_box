@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.util;
+package com.nanaios.curios_for_ammo_box.util;
 
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;

@@ -1,4 +1,4 @@
-package com.nanaios.curiosable_ammo_box.mixin.taczaddon;
+package com.nanaios.curios_for_ammo_box.mixin.taczaddon;
 
 import net.minecraftforge.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;

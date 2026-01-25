@@ -1,6 +1,6 @@
-package com.nanaios.curiosable_ammo_box.mixin.common;
+package com.nanaios.curios_for_ammo_box.mixin.common;
 
-import com.nanaios.curiosable_ammo_box.util.ItemHandlerWithCurios;
+import com.nanaios.curios_for_ammo_box.util.ItemHandlerWithCurios;
 import com.tacz.guns.item.ModernKineticGunScriptAPI;
 import net.minecraftforge.items.IItemHandler;
 import org.spongepowered.asm.mixin.Mixin;
