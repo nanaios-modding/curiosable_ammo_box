@@ -7,8 +7,7 @@
   "mixins": [
     "MixinAbstractGunItem",
     "MixinModernKineticGunScriptAPI",
-    "MixinInventory",
-    "MixinPlayerInvWrapper"
+    "MixinInventory"
   ],
   "client": [
     "MixinGunHudOverlay",

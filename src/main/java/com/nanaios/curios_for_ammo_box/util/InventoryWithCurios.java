@@ -2,13 +2,14 @@ package com.nanaios.curios_for_ammo_box.util;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 
 public class InventoryWithCurios extends Inventory {
-    final CuriosHandler handler;
+    final ItemHandlerWithCurios handler;
     public InventoryWithCurios(Inventory inventory) {
         super(inventory.player);
-        this.handler = new CuriosHandler((ICuriosHandlerSourceMarker) inventory,inventory.player);
+        this.handler = new ItemHandlerWithCurios((IItemHandler) inventory,inventory.player);
     }
 
     @Override
