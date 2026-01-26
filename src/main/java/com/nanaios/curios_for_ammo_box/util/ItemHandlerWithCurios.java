@@ -1,5 +1,6 @@
 package com.nanaios.curios_for_ammo_box.util;
 
+import com.nanaios.curios_for_ammo_box.mixin.common.MixinCombinedInvWrapper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
@@ -109,7 +110,7 @@ public class ItemHandlerWithCurios implements IItemHandler {
 
     public static IItemHandler create(IItemHandler itemHandler) {
         if(itemHandler instanceof PlayerInvWrapper playerWap) {
-            IItemHandlerModifiable[] handlers = playerWap.itemHandler;
+            IItemHandlerModifiable[] handlers = ((MixinCombinedInvWrapper)playerWap).mixinCFAB$getItemHandler();
             if(handlers[0] instanceof PlayerMainInvWrapper mainWap) {
                 return new ItemHandlerWithCurios(itemHandler, mainWap.getInventoryPlayer().player);
             }
