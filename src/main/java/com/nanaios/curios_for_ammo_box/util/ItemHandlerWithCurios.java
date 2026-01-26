@@ -28,7 +28,7 @@ public class ItemHandlerWithCurios implements IItemHandler {
     }
 
     public List<IItemHandler> getHandlers() {
-        List<IItemHandler> handlers = new java.util.ArrayList<>();
+        List<IItemHandler> handlers = new ArrayList<>();
         handlers.add(source);
 
         for(Map.Entry<String, ICurioStacksHandler> curiosEntry: curiosHandler.getCurios().entrySet()){
