@@ -7,7 +7,6 @@
   "mixins": [
     "MixinAbstractGunItem",
     "MixinModernKineticGunScriptAPI",
-    "MixinInventory",
     "MixinCombinedInvWrapper"
   ],
   "client": [
