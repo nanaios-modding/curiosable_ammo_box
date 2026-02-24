@@ -2,7 +2,7 @@ package com.nanaios.curios_for_ammo_box.mixin.common;
 
 import com.nanaios.curios_for_ammo_box.util.ItemHandlerWithCurios;
 import com.tacz.guns.client.animation.statemachine.GunAnimationStateContext;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

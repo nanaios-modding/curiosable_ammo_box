@@ -1,6 +1,6 @@
 package com.nanaios.curios_for_ammo_box;
 
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.Mod;
 
 
 @Mod(CuriosForAmmoBox.MODID)

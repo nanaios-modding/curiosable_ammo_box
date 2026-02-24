@@ -2,7 +2,7 @@ package com.nanaios.curios_for_ammo_box.util;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 public class InventoryWithCurios extends Inventory {
