@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface MixinCombinedInvWrapper {
     @Final
     @Accessor(value = "itemHandler")
-    IItemHandlerModifiable[] mixinCFAB$getItemHandler();
+    IItemHandlerModifiable[] curiosForAmmoBox$getItemHandlers();
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class TaCZAddonMixinPlugin implements IMixinConfigPlugin {
     @Override
-    public void onLoad(String s) {
+    public void onLoad(String mixinPackage) {
 
     }
 
@@ -20,27 +20,27 @@ public class TaCZAddonMixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public boolean shouldApplyMixin(String s, String s1) {
+    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         return LoadingModList.get().getModFileById("taczaddon") != null;
     }
 
     @Override
-    public void acceptTargets(Set<String> set, Set<String> set1) {
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
 
     }
 
     @Override
     public List<String> getMixins() {
-        return null;
+        return List.of();
     }
 
     @Override
-    public void preApply(String s, ClassNode classNode, String s1, IMixinInfo iMixinInfo) {
+    public void preApply(String targetClassName, ClassNode classNode, String mixinClassName, IMixinInfo mixinInfo) {
 
     }
 
     @Override
-    public void postApply(String s, ClassNode classNode, String s1, IMixinInfo iMixinInfo) {
+    public void postApply(String targetClassName, ClassNode classNode, String mixinClassName, IMixinInfo mixinInfo) {
 
     }
 }

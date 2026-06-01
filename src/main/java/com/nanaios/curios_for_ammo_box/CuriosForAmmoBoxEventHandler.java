@@ -8,23 +8,36 @@ import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
-@Mod.EventBusSubscriber(modid = CuriosForAmmoBox.MODID,bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = CuriosForAmmoBox.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CuriosForAmmoBoxEventHandler {
     public static final String CURIO_SLOT_ID = "ammo_box";
+
+    private CuriosForAmmoBoxEventHandler() {
+    }
 
     @SuppressWarnings({"removal", "UnstableApiUsage"})
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        if(!CuriosForAmmoBoxCommonConfig.ENABLE_CURIO_SLOT_COUNT_MODIFICATION.get()) return;
+        if (!CuriosForAmmoBoxCommonConfig.ENABLE_CURIO_SLOT_COUNT_MODIFICATION.get()) {
+            return;
+        }
 
         Player player = event.getEntity();
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide) {
+            return;
+        }
 
-        int slotCount = CuriosForAmmoBoxCommonConfig.CURIO_SLOT_COUNT.get();
+        int targetSlotCount = CuriosForAmmoBoxCommonConfig.CURIO_SLOT_COUNT.get();
 
         CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
             ICurioStacksHandler stacksHandler = handler.getCurios().get(CURIO_SLOT_ID);
-            int modification = slotCount - stacksHandler.getSlots();
+            if (stacksHandler == null) {
+                CuriosForAmmoBox.LOGGER.debug("player[{}] has no curio slot id {}", player.getName(), CURIO_SLOT_ID);
+                return;
+            }
+
+            int currentSlotCount = stacksHandler.getSlots();
+            int modification = targetSlotCount - currentSlotCount;
 
             CuriosForAmmoBox.LOGGER.debug("player[{}]'s slot modification = {}", player.getName(), modification);
             if (modification > 0) {

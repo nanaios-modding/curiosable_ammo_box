@@ -5,6 +5,9 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class CuriosForAmmoBoxCommonConfig {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
+    private CuriosForAmmoBoxCommonConfig() {
+    }
+
     public static final ForgeConfigSpec.BooleanValue ENABLE_CURIO_SLOT_COUNT_MODIFICATION;
     public static final ForgeConfigSpec.IntValue CURIO_SLOT_COUNT;
 

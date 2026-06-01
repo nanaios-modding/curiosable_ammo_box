@@ -1,6 +1,8 @@
 package com.nanaios.curios_for_ammo_box.util;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.damagesource.DamageSource;
@@ -10,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
@@ -22,6 +25,9 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 public class EmptyCuriosItemHandler implements ICuriosItemHandler {
+    public static final EmptyCuriosItemHandler INSTANCE = new EmptyCuriosItemHandler();
+    private static final IItemHandlerModifiable EMPTY_EQUIPPED = new ItemStackHandler(0);
+    private static final Multimap<String, AttributeModifier> EMPTY_MODIFIERS = ImmutableMultimap.of();
 
     public Map<String, ICurioStacksHandler> getCurios() {
         return Map.of();
@@ -44,7 +50,7 @@ public class EmptyCuriosItemHandler implements ICuriosItemHandler {
     }
 
     public IItemHandlerModifiable getEquippedCurios() {
-        return null;
+        return EMPTY_EQUIPPED;
     }
 
     public void setEquippedCurio(String identifier, int index, ItemStack stack) {
@@ -96,7 +102,7 @@ public class EmptyCuriosItemHandler implements ICuriosItemHandler {
     }
 
     public ListTag saveInventory(boolean clear) {
-        return null;
+        return new ListTag();
     }
 
     public void loadInventory(ListTag data) {
@@ -124,11 +130,11 @@ public class EmptyCuriosItemHandler implements ICuriosItemHandler {
     }
 
     public Multimap<String, AttributeModifier> getModifiers() {
-        return null;
+        return EMPTY_MODIFIERS;
     }
 
     public Tag writeTag() {
-        return null;
+        return new CompoundTag();
     }
 
     public void readTag(Tag tag) {

@@ -7,10 +7,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@Mixin(value = GunAnimationStateContext.class,remap = false)
+@Mixin(value = GunAnimationStateContext.class, remap = false)
 public class MixinGunAnimationStateContext {
     @ModifyVariable(method = "lambda$hasAmmoToConsume$7", at = @At("HEAD"), argsOnly = true, name = "arg1")
-    private IItemHandler MixinGunAnimationStateContext$lambda$hasAmmoToConsume$7(IItemHandler itemHandler) {
+    private IItemHandler wrapItemHandlerForHasAmmoToConsume(IItemHandler itemHandler) {
         return ItemHandlerWithCurios.create(itemHandler);
     }
 }
