@@ -1,6 +1,6 @@
 package com.nanaios.curios_for_ammo_box;
 
-import com.nanaios.curios_for_ammo_box.config.CuriosForAmmoBoxConfig;
+import com.nanaios.curios_for_ammo_box.config.CuriosForAmmoBoxCommonConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -14,6 +14,6 @@ public class CuriosForAmmoBox {
     public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     public CuriosForAmmoBox(FMLJavaModLoadingContext context) {
-        context.registerConfig(ModConfig.Type.SERVER, CuriosForAmmoBoxConfig.SPEC);
+        context.registerConfig(ModConfig.Type.COMMON, CuriosForAmmoBoxCommonConfig.SPEC);
     }
 }
