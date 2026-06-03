@@ -8,19 +8,25 @@ public class CuriosForAmmoBoxCommonConfig {
     private CuriosForAmmoBoxCommonConfig() {
     }
 
-    public static final ForgeConfigSpec.BooleanValue ENABLE_CURIO_SLOT_COUNT_MODIFICATION;
-    public static final ForgeConfigSpec.IntValue CURIO_SLOT_COUNT;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_CURIO_SLOT_MODIFICATION;
+    public static final ForgeConfigSpec.IntValue CURIO_SLOT_MODIFICATION;
 
     public static final ForgeConfigSpec SPEC;
 
     static {
-        ENABLE_CURIO_SLOT_COUNT_MODIFICATION = BUILDER
-                .comment("Whether to use this config to change the number of curio slots. When changing the number using datapack etc. with modpack etc., please set this config to false.")
-                .define("enableCurioSlotCountModification", false);
+        ENABLE_CURIO_SLOT_MODIFICATION = BUILDER
+                .comment("""
+                Whether to use this config to change the number of curio slots.
+                When changing the number using datapack etc. with modpack etc., please set this config to false.""")
+                .define("enableCurioSlotModification", false);
 
-        CURIO_SLOT_COUNT = BUILDER
-                .comment("The number of curio slots. This config is only effective when the above config is set to true.")
-                .defineInRange("curioSlotCount", 4, 0, Integer.MAX_VALUE);
+        CURIO_SLOT_MODIFICATION = BUILDER
+                .comment("""
+                        Increases or decreases the number of curio slots by the specified amount.
+                        This does not set the actual number of slots, but rather represents a relative change.
+                        The actual number of slots will be the default number of slots plus (or minus) the amount specified in this config.
+                        Since the number of slots can be changed by other mods or datapacks, the actual number of slots may not always follow this rule.""")
+                .defineInRange("curioSlotModification", 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         SPEC = BUILDER.build();
     }

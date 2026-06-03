@@ -1,6 +1,7 @@
 package com.nanaios.curios_for_ammo_box;
 
 import com.nanaios.curios_for_ammo_box.config.CuriosForAmmoBoxCommonConfig;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -8,43 +9,28 @@ import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
+import java.util.UUID;
+
 @Mod.EventBusSubscriber(modid = CuriosForAmmoBox.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CuriosForAmmoBoxEventHandler {
-    public static final String CURIO_SLOT_ID = "ammo_box";
+    private static final String CURIO_SLOT_ID = "ammo_box";
+    private static final String ATTRIBUTE_MODIFIER_NAME = "CuriosForAmmoBoxSlotModifier";
+    private static final UUID ATTRIBUTE_MODIFIER_UUID = UUID.fromString("256d9f52-7c7f-4d1b-bdcd-cea2e4534d38");
 
-    private CuriosForAmmoBoxEventHandler() {
-    }
-
-    @SuppressWarnings({"removal", "UnstableApiUsage"})
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        if (!CuriosForAmmoBoxCommonConfig.ENABLE_CURIO_SLOT_COUNT_MODIFICATION.get()) {
-            return;
-        }
-
         Player player = event.getEntity();
-        if (player.level().isClientSide) {
-            return;
-        }
-
-        int targetSlotCount = CuriosForAmmoBoxCommonConfig.CURIO_SLOT_COUNT.get();
+        if (player.level().isClientSide) return;
 
         CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
             ICurioStacksHandler stacksHandler = handler.getCurios().get(CURIO_SLOT_ID);
-            if (stacksHandler == null) {
-                CuriosForAmmoBox.LOGGER.debug("player[{}] has no curio slot id {}", player.getName(), CURIO_SLOT_ID);
-                return;
-            }
+            stacksHandler.removeModifier(ATTRIBUTE_MODIFIER_UUID);
 
-            int currentSlotCount = stacksHandler.getSlots();
-            int modification = targetSlotCount - currentSlotCount;
+            if (!CuriosForAmmoBoxCommonConfig.ENABLE_CURIO_SLOT_MODIFICATION.get()) return;
 
-            CuriosForAmmoBox.LOGGER.debug("player[{}]'s slot modification = {}", player.getName(), modification);
-            if (modification > 0) {
-                handler.growSlotType(CURIO_SLOT_ID, modification);
-            } else if (modification < 0) {
-                handler.shrinkSlotType(CURIO_SLOT_ID, -modification);
-            }
+            int targetSlotCount = CuriosForAmmoBoxCommonConfig.CURIO_SLOT_MODIFICATION.get();
+            AttributeModifier modifier = new AttributeModifier(ATTRIBUTE_MODIFIER_UUID, ATTRIBUTE_MODIFIER_NAME, targetSlotCount, AttributeModifier.Operation.ADDITION);
+            stacksHandler.addPermanentModifier(modifier);
         });
     }
 }
