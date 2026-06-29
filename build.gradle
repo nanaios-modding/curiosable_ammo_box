@@ -123,7 +123,7 @@ dependencies {
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
 
-    implementation "curse.maven:tacz-1-21-1-1353462:7539022"
+    implementation "curse.maven:tacz-1-21-1-1353462:8167430"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
